@@ -5,8 +5,11 @@ http.createServer(function (request, response) {
 	if(request.url=='abc'){
 		response.write('You sent a request from abc');
 	}
-	if(request.url == 'manic'){
+	else if(request.url == 'manic'){
 		response.write('You are manic.  Take a chill pill!');
+	}
+	else{
+		response.write('No Go');
 	}
     response.end("[HEROKU_NODEJS_MINIMAL]");
 }).listen(PORT);
