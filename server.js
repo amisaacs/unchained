@@ -13,7 +13,6 @@ http.createServer(function (request, response) {
 				response.end('Bad stuff happened!');
 			}
 			else {
-				response.write('In the else');
 				// response.writeHead(200, { 'Content-Type': 'text/html' });
 				response.end(content, 'utf-8');
 			} 
