@@ -15,7 +15,7 @@ http.createServer(function (request, response) {
 			else {
 				response.write('In the else');
 				// response.writeHead(200, { 'Content-Type': 'text/html' });
-				// response.end(content, 'utf-8');
+				response.end(content, 'utf-8');
 			} 
 			response.end('testing');
 		});
