@@ -5,7 +5,7 @@ var fs = require('fs');
 http.createServer(function (request, response) {
     //console.log('request ', request.url);
 	if(request.url=='/home'){
-		response.write('('+ request.url + ')');
+		//response.write('('+ request.url + ')');
 		fs.readFile('./home.htm', function(error, content) { //fs.readFile is an asynchronous method.JavaScript is asynchronous single thread - look up JavaScript execution model
 			if (error) {
 				response.writeHead(404, { 'Content-Type': 'text/html' });
