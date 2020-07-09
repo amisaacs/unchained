@@ -4,8 +4,8 @@ var fs = require('fs');
 
 http.createServer(function (request, response) {
     //console.log('request ', request.url);
-	response.write('('+ request.url + ')');
 	if(request.url=='/home'){
+		response.write('('+ request.url + ')');
 		fs.readFile('./home.htm', function(error, content) {
 			if (error) {
 				response.writeHead(404, { 'Content-Type': 'text/html' });
