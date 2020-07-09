@@ -7,15 +7,16 @@ http.createServer(function (request, response) {
 	if(request.url=='/home'){
 		//response.write('('+ request.url + ')');
 		fs.readFile('./home.htm', function(error, content) { //fs.readFile is an asynchronous method.JavaScript is asynchronous single thread - look up JavaScript execution model
-	/* 		if (error) {
-				response.writeHead(404, { 'Content-Type': 'text/html' });
-				response.end('Bad stuff happened! Error code: ' + error.code + '\n' );
-			}
-			else {
-				response.write('In the else');
-				response.writeHead(200, { 'Content-Type': 'text/html' });
-				response.end(content, 'utf-8');
-			} */
+			response.write(error.code);
+			// if (error) {
+				// response.writeHead(404, { 'Content-Type': 'text/html' });
+				// response.end('Bad stuff happened! Error code: ' + error.code + '\n' );
+			// }
+			// else {
+				// response.write('In the else');
+				// response.writeHead(200, { 'Content-Type': 'text/html' });
+				// response.end(content, 'utf-8');
+			// } 
 			response.end('testing');
 		});
 	}
