@@ -24,9 +24,7 @@ Deployment Instructions (Recreating the steps JM taught me):
 		$ git remote -v
 		$ git push remoteName master
 		Copy url to appName
-		
-
-*/
+		*/
 
 
 var PORT = process.env.PORT || 5000 ;
@@ -34,10 +32,10 @@ var http = require('http');
 var fs = require('fs');
 
 http.createServer(function (request, response) {
-	if(request.url=='/search'){
-		fs.readFile('./search.htm', function(error, content) { 
+	if(request.url=='/home'){
+		fs.readFile('./home.htm', function(error, content) { 
 			if (error) {
-				response.writeHead(error);
+				//response.writeHead(404, { 'Content-Type': 'text/html' });
 				response.end('Bad stuff happened!');
 			}
 			else {
@@ -46,21 +44,13 @@ http.createServer(function (request, response) {
 			} 
 		});
 	}
-	//else{
-		//response.write('Going to home page as default.');
-		//response.end('/nAre we at the home page?');
-		// fs.readFile('./index.htm',function(error,content){
-			// if(error){
-				// response.write(error, {'Content-Type':'text/html'});
-				// response.end('Error reading index file.');
-			// }
-			// else{
-				// response.writeHead(200,{'Content-Type':'text/html'});
-				// response.end(content, 'utf-8');
-			// }
-			
-		}
-		
-	//}
+	else if(request.url == '/manic'){
+		response.write('You are manic.  Take a chill pill!');
+		response.end('Ending manic');
+	}
+	else{
+		response.write('No Go');
+		response.end('ending No Go');
+	}
     //response.end("[HEROKU_NODEJS_MINIMAL]");
 }).listen(PORT);
