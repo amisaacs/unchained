@@ -38,7 +38,7 @@ http.createServer(function (request, response) {
 		fs.readFile('./home.htm', function(error, content) { 
 			if (error) {
 				//response.writeHead(404, { 'Content-Type': 'text/html' });
-				response.end('Bad stuff happened!');
+				response.end('Bad stuff happened at home!');
 			}
 			else {
 				response.writeHead(200, { 'Content-Type': 'text/html' });
@@ -47,8 +47,15 @@ http.createServer(function (request, response) {
 		});
 	}
 	else if(request.url == '/search'){
-		response.write('You are searching.');
-		response.end(content,'utf-8');
+		fs.readFile('./home.htm', function(error, content) { 
+			if(error){
+				response.end('Bad stuff happened loading search page.');
+			}
+			else{
+				response.write('You are searching.');
+				response.end(content,'utf-8');
+			}
+		}
 	}
 	else{
 		response.write('No Go');
