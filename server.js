@@ -35,7 +35,7 @@ var fs = require('fs');
 
 http.createServer(function (request, response) {
 	if(request.url=='/search'){
-		fs.readFile('./search.htm', function(error, content) { 
+		fs.readFile('./search', function(error, content) { 
 			if (error) {
 				//response.writeHead(404, { 'Content-Type': 'text/html' });
 				response.end('Bad stuff happened!');
