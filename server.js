@@ -32,11 +32,11 @@ var http = require('http');
 var fs = require('fs');
 
 http.createServer(function (request, response) {
-	if(request.url=='/home'){
-		fs.readFile('./home.htm', function(error, content) { 
+	if(request.url=='/search'){
+		fs.readFile('./search.htm', function(error, content) { 
 			if (error) {
 				//response.writeHead(404, { 'Content-Type': 'text/html' });
-				response.end('Bad stuff happened!');
+				response.end('No Search. Bad stuff happened!');
 			}
 			else {
 				response.writeHead(200, { 'Content-Type': 'text/html' });
@@ -44,8 +44,8 @@ http.createServer(function (request, response) {
 			} 
 		});
 	}
-	else if(request.url == '/manic'){
-		response.write('You are manic.  Take a chill pill!');
+	else if(request.url == '/contact'){
+		response.write("We'll be with you shortly.");
 		response.end('Ending manic');
 	}
 	else{
