@@ -34,8 +34,8 @@ var http = require('http');
 var fs = require('fs');
 
 http.createServer(function (request, response) {
-	if(request.url=='/home'){
-		fs.readFile('./home.htm', function(error, content) { 
+	if(request.url=='/search'){
+		fs.readFile('./search.htm', function(error, content) { 
 			if (error) {
 				//response.writeHead(404, { 'Content-Type': 'text/html' });
 				response.end('Bad stuff happened!');
@@ -46,13 +46,9 @@ http.createServer(function (request, response) {
 			} 
 		});
 	}
-	else if(request.url == '/search'){
-		response.write('You are searching.  Take a chill pill and stay home!');
-		response.end('Ending Search');
-	}
 	else{
-		response.write('No Go');
-		response.end('ending No Go');
+		response.write('Going to home page as default.');
+		response.end('/nAre we at the home page?');
 	}
     //response.end("[HEROKU_NODEJS_MINIMAL]");
 }).listen(PORT);
