@@ -35,9 +35,9 @@ var fs = require('fs');
 
 http.createServer(function (request, response) {
 	if(request.url=='/search'){
-		fs.readFile('./search', function(error, content) { 
+		fs.readFile('./search.htm', function(error, content) { 
 			if (error) {
-				//response.writeHead(404, { 'Content-Type': 'text/html' });
+				response.writeHead(error);
 				response.end('Bad stuff happened!');
 			}
 			else {
@@ -47,6 +47,7 @@ http.createServer(function (request, response) {
 		});
 	}
 	else{
+		//fs.readFile('./index'
 		response.write('Going to home page as default.');
 		response.end('/nAre we at the home page?');
 	}
