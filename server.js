@@ -24,6 +24,8 @@ Deployment Instructions (Recreating the steps JM taught me):
 		$ git remote -v
 		$ git push remoteName master
 		Copy url to appName
+		
+		
 */
 
 
@@ -44,9 +46,9 @@ http.createServer(function (request, response) {
 			} 
 		});
 	}
-	else if(request.url == '/manic'){
-		response.write('You are manic.  Take a chill pill!');
-		response.end('Ending manic');
+	else if(request.url == '/search'){
+		response.write('You are searching.');
+		response.end(content,'utf-8');
 	}
 	else{
 		response.write('No Go');
