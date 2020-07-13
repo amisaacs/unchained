@@ -25,7 +25,7 @@ Deployment Instructions (Recreating the steps JM taught me):
 		$ git push remoteName master
 		Copy url to appName
 		
-		
+
 */
 
 
@@ -35,10 +35,10 @@ var fs = require('fs');
 
 http.createServer(function (request, response) {
 	if(request.url=='/home'){
-		fs.readFile('./home.htm', function(error, content)) { 
+		fs.readFile('./home.htm', function(error, content) { 
 			if (error) {
 				//response.writeHead(404, { 'Content-Type': 'text/html' });
-				response.end('Bad stuff happened at home!');
+				response.end('Bad stuff happened!');
 			}
 			else {
 				response.writeHead(200, { 'Content-Type': 'text/html' });
@@ -47,18 +47,12 @@ http.createServer(function (request, response) {
 		});
 	}
 	else if(request.url == '/search'){
-		fs.readFile('./home.htm', function(error, content) { 
-			if(error){
-				response.end('Bad stuff happened loading search page.');
-			}
-			else{
-				response.write('You are searching.');
-				response.end(content,'utf-8');
-			}
-		}
+		response.write('You are searching.  Take a chill pill and stay home!');
+		response.end('Ending Search');
 	}
 	else{
-		response.end('Went to catch else.');
+		response.write('No Go');
+		response.end('ending No Go');
 	}
     //response.end("[HEROKU_NODEJS_MINIMAL]");
 }).listen(PORT);
