@@ -46,7 +46,7 @@ http.createServer(function (request, response) {
 			} 
 		});
 	}
-	else{
+	//else{
 		//response.write('Going to home page as default.');
 		//response.end('/nAre we at the home page?');
 		// fs.readFile('./index.htm',function(error,content){
@@ -61,6 +61,6 @@ http.createServer(function (request, response) {
 			
 		}
 		
-	}
+	//}
     //response.end("[HEROKU_NODEJS_MINIMAL]");
 }).listen(PORT);
