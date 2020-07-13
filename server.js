@@ -49,8 +49,16 @@ http.createServer(function (request, response) {
 		response.end('Ending manic');
 	}
 	else{
-		response.write('No Go');
-		response.end('ending No Go');
+		fs.readFile('./home.htm', function(error, content) { 
+			if (error) {
+				//response.writeHead(404, { 'Content-Type': 'text/html' });
+				response.end('No Home. Bad stuff happened!');
+			}
+			else {
+				response.writeHead(200, { 'Content-Type': 'text/html' });
+				response.end(content, 'utf-8');
+			} 
+		});
 	}
     //response.end("[HEROKU_NODEJS_MINIMAL]");
 }).listen(PORT);
