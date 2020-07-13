@@ -47,19 +47,20 @@ http.createServer(function (request, response) {
 		});
 	}
 	else{
-		fs.readFile('./index.htm',function(error,content){
-			if(error){
-				response.write(error, {'Content-Type':'text/html'});
-				response.end('Error reading index file.');
-			}
-			else{
-				response.writeHead(200,{'Content-Type':'text/html'});
-				response.end(content, 'utf-8');
-			}
+		//response.write('Going to home page as default.');
+		//response.end('/nAre we at the home page?');
+		// fs.readFile('./index.htm',function(error,content){
+			// if(error){
+				// response.write(error, {'Content-Type':'text/html'});
+				// response.end('Error reading index file.');
+			// }
+			// else{
+				// response.writeHead(200,{'Content-Type':'text/html'});
+				// response.end(content, 'utf-8');
+			// }
 			
 		}
-		response.write('Going to home page as default.');
-		response.end('/nAre we at the home page?');
+		
 	}
     //response.end("[HEROKU_NODEJS_MINIMAL]");
 }).listen(PORT);
