@@ -35,7 +35,7 @@ var fs = require('fs');
 
 http.createServer(function (request, response) {
 	if(request.url=='/home'){
-		fs.readFile('./home.htm', function(error, content) { 
+		fs.readFile('./home.htm', function(error, content)) { 
 			if (error) {
 				//response.writeHead(404, { 'Content-Type': 'text/html' });
 				response.end('Bad stuff happened at home!');
@@ -58,8 +58,7 @@ http.createServer(function (request, response) {
 		}
 	}
 	else{
-		response.write('No Go');
-		response.end('ending No Go');
+		response.end('Went to catch else.');
 	}
     //response.end("[HEROKU_NODEJS_MINIMAL]");
 }).listen(PORT);
